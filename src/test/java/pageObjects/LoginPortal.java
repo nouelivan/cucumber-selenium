@@ -53,6 +53,24 @@ public class LoginPortal {
 		
 	}
 	
+		public void validationFailed() {
+		
+		Alert alert = browser.switchTo().alert();
+		
+		String failed = "validation failed";
+		
+		@SuppressWarnings("unused")
+		boolean notPassed;
+		
+		
+		if (alert.getText().equals(failed) ) {
+			
+			notPassed = true;
+			
+		}
+		
+	}
+	
 	
 	
 	
