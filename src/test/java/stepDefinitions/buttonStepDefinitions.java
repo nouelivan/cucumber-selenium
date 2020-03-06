@@ -19,7 +19,7 @@ public class buttonStepDefinitions {
 	
 	 @Given("^I am at the Webdriver Univerity \\(Button Clicks\\) page$")
 	    public void i_am_at_the_webdriver_univerity_button_clicks_page() {
-	     
+	     		System.setProperty("webdriver.chrome.browser", "/Users/anacarrasco/Drivers/chromedriver");
 		 		browser = new ChromeDriver();
 		 		buttonsPage = new ButtonsPage(browser);
 		 		browser.get("http://webdriveruniversity.com/Click-Buttons/index.html");
@@ -31,7 +31,7 @@ public class buttonStepDefinitions {
 	    public void i_click_on_the_webelement_click_me_button() {
 	 
 	  
-	    	buttonsPage.clickOnButton();
+	    	buttonsPage.clickOnButton(); 
 	    	
 	    }
 
@@ -43,7 +43,6 @@ public class buttonStepDefinitions {
 	    	
 	    	buttonsPage.takeSnapShot(browser, "Macintosh/HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/popupFound.png");
 	    	
-	    	browser.close();
 	    	
 	    }
 	    
