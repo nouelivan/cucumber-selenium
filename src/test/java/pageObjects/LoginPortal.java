@@ -1,6 +1,11 @@
 package pageObjects;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPortal {
 	
 	WebDriver browser;
+	TakesScreenshot screenShot;
 	
 	public LoginPortal(WebDriver browser) {
 		
@@ -49,6 +55,8 @@ public class LoginPortal {
 			
 			passed = true;
 			
+			System.out.println("Validation Succeeded");
+			
 		}
 		
 	}
@@ -67,9 +75,23 @@ public class LoginPortal {
 			
 			notPassed = true;
 			
+			System.out.println("Validation Failed");
+			
 		}
 		
 	}
+		
+		public void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception{
+			
+			TakesScreenshot scrShot = ((TakesScreenshot)webdriver);
+		
+			File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+		
+			File DestFile = new File(fileWithPath);
+		
+			FileUtils.copyFile(SrcFile, DestFile);
+			
+		}
 	
 	
 	

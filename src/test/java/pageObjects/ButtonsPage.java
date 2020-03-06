@@ -1,5 +1,10 @@
 package pageObjects;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +25,7 @@ public class ButtonsPage {
 	
 	
 	@FindBy(how = How.ID, using = "button1")
-		private WebElement buttonPopup;
+		private WebElement button;
 	
 	@FindBy(how = How.CLASS_NAME, using = "modal-title")
 		private WebElement findPopup;
@@ -30,16 +35,29 @@ public class ButtonsPage {
 	
 	public void clickOnButton() {
 		 
-		 buttonPopup.click();
+		 this.button.click();
 		 
 		 }
 	
 	public void popupTrue() {
 		
-		findPopup.isDisplayed();
+		this.findPopup.isDisplayed();
+		
 		
 	}
+
+
+	public void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception {
+		
+		TakesScreenshot scrShot = ((TakesScreenshot)webdriver);
 	
+		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+	
+		File DestFile = new File(fileWithPath);
+	
+		FileUtils.copyFile(SrcFile, DestFile);
+		
+	}
 	
 
 	public static void main(String[] args) {
