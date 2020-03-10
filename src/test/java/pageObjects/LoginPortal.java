@@ -43,41 +43,42 @@ public class LoginPortal {
 	
 	public void validationPassed() {
 		
-		Alert alert = browser.switchTo().alert();
-		
-		String success = "validation succeeded";
-		
-		@SuppressWarnings("unused")
-		boolean passed;
-		
-		
-		if (alert.getText().equals(success) ) {
+		Alert confirmationAlert = browser.switchTo().alert();
+		 String alertText = confirmationAlert.getText();
+		 
+		 if (alertText.equals("validation succeeded")) {
+			 
+			 System.out.print("Validation Passed");
+			 
+			 confirmationAlert.dismiss();
+			 
+		 } else {
+			 
+			 confirmationAlert.dismiss();
+			 
+		 }
 			
-			passed = true;
-			
-			System.out.println("Validation Succeeded");
-			
-		}
+		
 		
 	}
 	
 		public void validationFailed() {
 		
-		Alert alert = browser.switchTo().alert();
-		
-		String failed = "validation failed";
-		
-		@SuppressWarnings("unused")
-		boolean notPassed;
-		
-		
-		if (alert.getText().equals(failed) ) {
-			
-			notPassed = true;
-			
-			System.out.println("Validation Failed");
-			
-		}
+			Alert confirmationAlert = browser.switchTo().alert();
+			 String alertText = confirmationAlert.getText();
+			 
+			 if (alertText.equals("validation failed")) {
+				 
+				 System.out.print("Validation Failed");
+				 
+				 confirmationAlert.dismiss();
+				 
+			 } else {
+				 
+				 confirmationAlert.dismiss();
+				 
+			 }
+				
 		
 	}
 		

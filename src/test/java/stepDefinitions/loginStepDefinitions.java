@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,8 +16,8 @@ public class loginStepDefinitions {
 	LoginPortal loginPortal;
 	
 
-	    @Given("^the user inputs valid \"([^\"]*)\" and \"([^\"]*)\"$")
-	    public void the_user_inputs_valid_something_and_something(String username, String password) {
+		@Given("^the user inputs valid \"([^\"]*)\" and \"([^\"]*)\"$")
+	    public void the_user_inputs_valid_username_and_password(String username, String password) {
 	    	
 	    	browser = new ChromeDriver();
 	 		loginPortal = new LoginPortal(browser);
@@ -31,10 +30,11 @@ public class loginStepDefinitions {
 	    }
 
 	  
-	    @Given("^the user inputs invalid \"([^\"]*)\" and \"([^\"]*)\"$")
-	    public void the_user_inputs_invalid_something_and_something(String username, String password) {
+
+		@Given("^the user inputs invalid \"([^\"]*)\" and \"([^\"]*)\"$")
+	    public void the_user_inputs_invalid_username_and_password(String username, String password) {
 	        
-	    	browser = new ChromeDriver();
+			browser = new ChromeDriver();
 	 		loginPortal = new LoginPortal(browser);
 	 		browser.get("http://webdriveruniversity.com/Login-Portal/index.html");
 	 		browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -44,7 +44,7 @@ public class loginStepDefinitions {
 	    	
 	    }
 
-	    @When("^user clicks Login button $")
+	    @When("^user clicks Login button$")
 	    public void user_clicks_login_button() {
 	    	
 	    	loginPortal = new LoginPortal(browser);
@@ -59,8 +59,9 @@ public class loginStepDefinitions {
 	        
 	    		loginPortal.validationPassed();
 	    		
-	    		loginPortal.takeSnapShot(browser, "Macintosh/HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/validationPass.png");
+	    		loginPortal.takeSnapShot(browser, "Macintosh HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/validationPass.jpeg");
 	    	
+	    		browser.quit();
 	    }
 
 	    @Then("^the user is presented with a popup window validation failed$")
@@ -68,16 +69,11 @@ public class loginStepDefinitions {
 	        
 	    		loginPortal.validationFailed();
 	    		
-	    		loginPortal.takeSnapShot(browser, "Macintosh/HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/validationFail.png");
+	    		loginPortal.takeSnapShot(browser, "Macintosh HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/validationFail.jpeg");
 	    	
+	    		browser.quit();
 	    }
-	    
-	    @After
-	    public void closeBrowser() {
-	 
-	    browser.quit();
-	    
-	    }
+	  
 
 	}
 	

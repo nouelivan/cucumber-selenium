@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +26,7 @@ public class buttonStepDefinitions {
 		 		browser.manage().window().maximize();
 	    }
 
-	    @When("^ I click on the WebElement click me button $")
+	 @When("^I click on the WebElement click me button$")
 	    public void i_click_on_the_webelement_click_me_button() {
 	 
 	  
@@ -35,7 +34,7 @@ public class buttonStepDefinitions {
 	    	
 	    }
 
-	    @Then("^ A popup congratulations window appears $")
+	 @Then("^A popup congratulations window appears$")
 	    public void a_popup_congratulations_window_appears() throws Exception {
 	        
 	    	
@@ -43,14 +42,7 @@ public class buttonStepDefinitions {
 	    	
 	    	buttonsPage.takeSnapShot(browser, "Macintosh/HD⁩/Users⁩/⁨anacarrasco⁩/⁨Downloads⁩/popupFound.png");
 	    	
-	    	
-	    }
-	    
-	    @After
-	    public void closeBrowser() {
-
-	    browser.quit();
-	    
+	    	browser.quit();
 	    }
 	   
 
