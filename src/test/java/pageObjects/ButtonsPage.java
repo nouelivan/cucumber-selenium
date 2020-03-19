@@ -37,14 +37,14 @@ public class ButtonsPage {
 		 
 		 this.button.click();
 		 
-		 }
+		 } 
 	
 	public void popupTrue() {
 		
 		this.findPopup.isDisplayed();
 		
 		
-	}
+		} 
 
 
 	public void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception {
@@ -59,10 +59,5 @@ public class ButtonsPage {
 		
 	}
 	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
