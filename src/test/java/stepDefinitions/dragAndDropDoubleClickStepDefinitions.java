@@ -46,6 +46,8 @@ public class dragAndDropDoubleClickStepDefinitions {
 	    public void the_larger_boxes_text_changes_to_dropped() {
 	    	
 	    	DADDC.validateBoxDrop();
+	    	
+	    	browser.quit();
 	        
 	    }
 
@@ -53,14 +55,10 @@ public class dragAndDropDoubleClickStepDefinitions {
 	    public void the_box_changes_color_to_green() {
 	    	
 	    	DADDC.validateDoubleClick();
+	    	
+	    	browser.quit();
 	        
 	    }
 	    
-	    @After
-	    public void closeBrowser() {
-	    	
-	    	browser.quit();
-	    	
-	    }
 	
 }
